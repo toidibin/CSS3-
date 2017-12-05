@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>染色效果</title>
+</head>
+<!-- 
+    涉及的基础知识语法
+    滤镜：
+    sepia(%)  将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化
+    saturate(%) 转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化
+    hue-rotate(deg) 给图像应用色相旋转。"angle"一值设定图像会被调整的色环角度值
+
+    动画
+    transition: transition 属性是一个简写属性，用于设置四个过渡属性：transition-property transition-duration transition-timing-function transition-delay
+    transform: transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜
+ -->
+<style>
+    .container{
+        width: 900px; 
+        height: 400px;
+        overflow: visible; 
+        margin: 100px auto; 
+        position: relative;
+        border: 2px solid #ccc;
+    }
+    img {       
+        width: 20%; 
+        position: absolute;
+        z-index: 1;
+        padding: 10px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        -webkit-transition: 1s filter, 1s -webkit-filter, 2s transform; 
+        transition: 1s filter, 1s -webkit-filter , 2s transform; 
+        -webkit-filter: sepia() saturate(100%) hue-rotate(295deg);
+        filter: sepia() saturate(100%) hue-rotate(295deg);
+    }
+    img:hover,
+    img:focus {
+        -webkit-filter: none;
+        filter: none;
+        z-index: 2;
+        transform: scale(1.5);
+        -moz-transform: scale(1.5) ;
+        -webkit-transform: scale(1.5) ;
+        box-shadow: -10px 10px 20px #666;
+        -moz-box-shadow: -10px 10px 20px #666;
+        -webkit-box-shadow: -10px 10px 20px #666;
+    }
+
+    .pic1{
+        left: 100px;
+        top: 50px;
+        -webkit-transform: rotate(20deg);
+        -moz-transform: rotate(20deg);
+        transform: rotate(20deg);
+    }
+    .pic2{
+        left: 280px;
+        top: 60px;
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    .pic3{
+        left: 500px;
+        top: 120px;
+        -webkit-transform: rotate(23deg);
+        -moz-transform: rotate(23deg);
+        transform: rotate(23deg);
+    }
+    .pic4{
+        left: 380px;
+        top: 222px;
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    .pic5{
+        left: 670px;
+        top: 68px;
+        -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
+        transform: rotate(40deg);
+    }
+  
+</style>
+
+<body>
+    <div class="container">
+        <img src="../images/1.jpg" class="pic1" alt="bg">
+        <img src="../images/2.jpg" class="pic2" alt="bg">
+        <img src="../images/3.jpg" class="pic3" alt="bg">
+        <img src="../images/4.jpg" class="pic4" alt="bg">
+        <img src="../images/5.jpg" class="pic5" alt="bg">
+    </div>
+    
+</body>
+
+</html>

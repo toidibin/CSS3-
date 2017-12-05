@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 
+    背景知识：
+    RGBA || HSLA  
+    H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
+    S：Saturation(饱和度)。取值为：0.0% - 100.0%
+    L：Lightness(亮度)。取值为：0.0% - 100.0%
+    A：Alpha透明度。取值0~1之间
+ -->
+<style>
+    body,
+    main.main2::before {
+        background: url('../images/4.jpg') 0 / cover fixed;
+    }
+
+    main.main1 {
+        margin: 0 auto;
+        padding: 1em;
+        max-width: 23em;
+        background: hsla(0, 0%, 100%, .25) border-box;
+        overflow: hidden;
+        border-radius: .3em;
+        box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset,
+        0 .5em 1em rgba(0, 0, 0, 0.6);
+        text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+        margin-bottom: 10px;
+    }
+
+    main.main2 {
+        position: relative;
+        margin: 0 auto;
+        padding: 1em;
+        max-width: 23em;
+        background: hsla(0, 0%, 100%, .25) border-box;
+        overflow: hidden;
+        border-radius: .3em;
+        box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset,
+        0 .5em 1em rgba(0, 0, 0, 0.6);
+        text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+    }
+
+    main.main2::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: -30px;
+        z-index: -1;
+        -webkit-filter: blur(20px);
+        filter: blur(20px);
+    }
+</style>
+
+<body>
+    <main class="main1">
+        <blockquote>
+            <footer>
+                <cite>
+                    Chandler Bing, 据报道，为了解决严重的日期 Bug，苹果在12月2日提前发布了 iOS 11.2 正式版。iOS 11.2 带来了 Apple Pay Cash 个人转账功能，但由于发布时间是在周末，所以这个功能一直没有被苹果激活。虽然在发布说明中提到了
+                    Apple Pay Cash 个人转账，但一直不可用
+                </cite>
+            </footer>
+            <h2>优化前效果</h2>
+        </blockquote>
+    </main>
+
+    <main class="main2">
+        <blockquote>
+            <footer>
+                <cite>
+                    Chandler Bing, 据报道，为了解决严重的日期 Bug，苹果在12月2日提前发布了 iOS 11.2 正式版。iOS 11.2 带来了 Apple Pay Cash 个人转账功能，但由于发布时间是在周末，所以这个功能一直没有被苹果激活。虽然在发布说明中提到了
+                    Apple Pay Cash 个人转账，但一直不可用
+                </cite>
+            </footer>
+            <h2>优化后效果:</h2>(对一个伪元素进行处理，然后将其定位到元素的下层，它的背景将会无缝匹 配body 的背景)
+        </blockquote>
+    </main>
+</body>
+
+</html>

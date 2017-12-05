@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>touying</title>
+</head>
+<!-- 
+    涉及的基础知识语法
+    
+    box-shadow: h-shadow v-shadow blur spread color inset ;
+        h-shadow 必需 水平阴影位置
+        v-shadow 必需 垂直。。。
+        blur 可选 模糊距离
+        spread 可选 阴影尺寸 会根据你指定的值去扩大或者缩小投影的尺寸
+        color 可选 颜色
+        inset 可选 将外部阴影 (outset) 改为内部阴影
+
+    filter: drop-shadow(x偏移, y偏移, 模糊大小, 色值);
+    关于box-shadow和drop-shadow()的区别可参考：http://www.zhangxinxu.com/wordpress/2016/05/css3-filter-drop-shadow-vs-box-shadow/
+
+ -->
+ <style>
+     .base{
+         margin: 0 auto;
+         width: 5.9em;
+         height: 5.2em;
+         border: 1px solid #999;
+         margin-bottom: 10px;
+     }
+     
+     .dance{
+        box-shadow: 0 5px 4px -4px black; 
+     }
+     .linbian{
+         box-shadow: 3px 3px 6px -3px black;
+     }
+     .shuangce{
+        box-shadow: 5px 0 4px -4px black,
+                    -5px 0 4px -4px black 
+     }
+     .abnormal{
+        position: relative;
+        width: 5.9em;
+        height: 5.2em;
+        margin: .6em;
+        background: #fb3;
+        -webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+        filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+        font: 200%/1.6 Baskerville, Palatino, serif;
+        text-align: center;
+     }
+     .abnormal::before {
+        content: '';
+        position: absolute;
+        top: 1em;
+        right: -.7em;
+        width: 0;
+        height: 0;
+        border: 1em solid transparent;
+        border-left-color: #fb3;
+        border-right-width: 0;
+     }
+ </style>
+<body>
+    <!-- 单侧投影 -->
+    <div class="base dance"></div>
+
+    <!-- 邻边投影 -->
+    <div class="base linbian"></div>
+
+    <!-- 双侧投影 (用两个单侧投影实现)-->
+    <div class="base shuangce"></div>
+
+    <!-- 不规则投影 （这里用box-shadow无法实现）-->
+    <div class="abnormal"></div>
+</body>
+</html>
