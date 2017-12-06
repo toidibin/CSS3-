@@ -8,9 +8,103 @@
 </head>
 <!-- 
     背景知识
-    linear-gradient： 
+    linear-gradient([ [ <angle> | to <side-or-corner> ] ,]? <color-stop>[, <color-stop>]+)
+        []  在正则中表示一个字符类，这里，你可以理解为一个小单元。
+        |   表示候选。也就是“或者”的意思，要么前面的，要么就后面的。
+        ?   为量词，表示0个或1个，言外之意就是，你可以不指定方向，直接渐变色走起
+        +   也是量词，表示1个或者更多个。因此，终止颜色是不可缺少的。例如：linear-gradient(red)是酱油命，白板。
+        <>  中的是关键字，主要是让开发人员知道这里应该放些什么内容
+
+        angle 表示渐变的角度
+        side-or-corner  可选值 [left | right] || [top | bottom]  如 left bottom 表示从左上往右下
+        color-stop 渐变关键颜色结点   <color> [<percentage> | <length>]
  -->
-<body>
+
+ <style>
+    .note {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 15em;
+        padding: 2em;
+        margin: 0 1rem;
+        color: white;
+        font: 100%/1.6 Baskerville, Palatino, serif;
+        border-radius: 0.5em;
+        position: relative;
+        background: #58a;
+        /* Fallback */
+        background: linear-gradient(-155deg, rgba(0, 0, 0, 0) 1.5em, #5588aa 0%);
+        border-radius: 0.5em;
+        margin-bottom: 10px;
+      }
+      .note::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+        width: 1.65507em;
+        height: 3.5493em;
+        transform: translateY(-1.89424em) rotate(-40deg);
+        transform-origin: bottom right;
+        border-bottom-left-radius: inherit;
+        box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+      }
+      
+      .note + .note {
+        font-size: 130%;
+        position: relative;
+        background: #655;
+        /* Fallback */
+        background: linear-gradient(-110deg, rgba(0, 0, 0, 0) 2em, #665555 0%);
+        border-radius: 0.5em;
+      }
+      .note + .note::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+        width: 5.84761em;
+        height: 2.12836em;
+        transform: translateY(3.71925em) rotate(50deg);
+        transform-origin: bottom right;
+        border-bottom-left-radius: inherit;
+        box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+      }
+      
+      .note:nth-child(3) {
+        width: 20em;
+        position: relative;
+        background: yellowgreen;
+        /* Fallback */
+        background: linear-gradient(-135deg, rgba(0, 0, 0, 0) 1.8em, #9acd32 0%);
+        border-radius: 0.5em;
+      }
+      .note:nth-child(3)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+        width: 2.54558em;
+        height: 2.54558em;
+        transform: translateY(0em) rotate(0deg);
+        transform-origin: bottom right;
+        border-bottom-left-radius: inherit;
+        box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+      }
+      
     
+      
+ </style>
+<body>
+    <div class="note">“The only way to get rid of a temptation is to yield to it.”
+            — Oscar Wilde, The Picture of Dorian Gray</div>
+            <div class="note">“The only way to get rid of a temptation is to yield to it.”
+            — Oscar Wilde, The Picture of Dorian Gray</div>
+            <div class="note">“The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with longing for the things it has forbidden to itself, with desire for what its monstrous laws have made monstrous and unlawful.”
+            — Oscar Wilde, The Picture of Dorian Gray</div> 
 </body>
 </html>
